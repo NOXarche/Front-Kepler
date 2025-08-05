@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Kepler</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .auth-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        
+        h1 {
+            background: linear-gradient(45deg, #00ffff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+        
+        p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .back-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #00ffff, #8a2be2);
+            border: none;
+            border-radius: 50px;
+            color: #0a0e27;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Authentication</h1>
+        <p>Authentication system will be integrated here.</p>
+        <p>This is where users will log in or sign up for Kepler.</p>
+        <a href="/" class="back-button">← Back to Home</a>
+    </div>
+</body>
+</html>
