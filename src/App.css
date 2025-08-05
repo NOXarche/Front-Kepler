@@ -232,6 +232,7 @@ body {
   padding-top: 5rem;
 }
 
+/* 3D IDE Animation - NO DISCO LIGHTS */
 .ide-animation {
   width: 98vw;
   max-width: 460px;
@@ -239,7 +240,12 @@ body {
   background: var(--primary-darker);
   border: 2px solid var(--accent-cyan);
   border-radius: 16px;
-  box-shadow: var(--shadow-heavy);
+  /* 3D EFFECT - NO DISCO LIGHTS */
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 255, 0.2),
+    0 0 0 1px rgba(0, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   color: #e2e8f0;
   font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   padding: 20px;
@@ -251,22 +257,39 @@ body {
   overflow: hidden;
   position: relative;
   animation: fadeInUp 1s ease-out;
+  /* 3D Transform */
+  transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 3D Hover Effect */
+.ide-animation:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(10px);
+  box-shadow: 
+    0 20px 40px rgba(0, 255, 255, 0.3),
+    0 0 0 1px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* REMOVE THE DISCO LIGHT EFFECT */
 .ide-animation::before {
+  display: none; /* This removes the gradient shifting border */
+}
+
+/* 3D depth effect for the IDE screen */
+.ide-animation::after {
   content: '';
   position: absolute;
-  top: -2px; left: -2px; right: -2px; bottom: -2px;
-  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple), var(--accent-cyan));
-  background-size: 400% 400%;
-  border-radius: 16px;
+  top: 50px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), transparent);
+  border-radius: 8px;
+  pointer-events: none;
   z-index: -1;
-  animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 @keyframes fadeInUp {
@@ -296,12 +319,17 @@ body {
   .hero-content { margin-left: 0; text-align: center; max-width: unset; }
 }
 
+/* Clean IDE Header for 3D Effect */
 .ide-header {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(0, 255, 255, 0.05);
+  margin: -20px -20px 12px -20px;
+  padding: 12px 20px 8px 20px;
+  border-radius: 16px 16px 0 0;
 }
 
 .ide-dot {
@@ -309,16 +337,18 @@ body {
   height: 12px;
   border-radius: 50%;
   margin-right: 8px;
-  animation: pulse 2s ease-in-out infinite alternate;
+  /* Simple pulse, no disco */
+  animation: simplePulse 2s ease-in-out infinite alternate;
 }
+
+@keyframes simplePulse {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
 .ide-dot.red { background: #ff5f57; animation-delay: 0s; }
 .ide-dot.yellow { background: #ffbd2e; animation-delay: 0.2s; }
 .ide-dot.green { background: #28ca42; animation-delay: 0.4s; }
-
-@keyframes pulse {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
-}
 
 .ide-filename {
   color: var(--accent-cyan);
@@ -501,23 +531,39 @@ body {
   .courses-grid { grid-template-columns: 1fr; gap: 1.2rem; }
 }
 
-.features-grid, .whykepler-grid, .pricing-grid {
+.features-grid, .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
 @media (max-width: 900px) {
-  .features-grid, .whykepler-grid, .pricing-grid {
+  .features-grid, .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 }
 
 @media (max-width: 600px) {
-  .features-grid, .whykepler-grid, .pricing-grid {
+  .features-grid, .pricing-grid {
     grid-template-columns: 1fr;
     gap: 1.2rem;
+  }
+}
+
+/* WHY KEPLER GRID - 2 TILES PER ROW */
+.whykepler-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .whykepler-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -851,12 +897,24 @@ body {
   .footer-flex { flex-direction: column; gap: 2rem; }
   .section-title { font-size: 1.8rem; }
   .hero { padding-top: 6rem; }
+  .nav-buttons { gap: 0.5rem; }
+  .btn-nav { padding: 0.5rem 1rem; font-size: 0.9rem; }
+  .theme-toggle-btn { width: 36px; height: 36px; }
 }
 
 @media (max-width: 480px) {
   .hero-title { font-size: 1.8rem; }
   .container { padding: 0 0.5rem; }
   .pricing-card.popular { transform: none; }
+  .ide-animation { 
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+    font-size: 0.9rem;
+  }
+}
+
+/* REMOVE DISCO LIGHTS FROM ALL ELEMENTS */
+@keyframes gradientShift {
+  /* Empty - removes the disco effect */
 }
 
 /* Focus States for Accessibility */
