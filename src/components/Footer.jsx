@@ -29,7 +29,7 @@ const Footer = () => (
     </div>
     <div className="footer-bottom">
       &copy; {new Date().getFullYear()} Kepler. Shaping the future of education.<br/>
-      Inspired by AlgoZenith. All rights reserved.
+      All rights reserved.
     </div>
   </footer>
 )
