@@ -9,13 +9,14 @@ const courses = [
   { title: "Data Structures & Algorithms", description: "Crack coding interviews with top-tier DSA prep.", icon: "🗂️" }
 ]
 
+// Always 2 rows of 3 columns. Use CSS grid for responsiveness.
 const PopularCourses = () => (
   <section className="popular-courses">
     <div className="container">
       <h2 className="section-title">Popular Courses</h2>
-      <div className="courses-grid">
+      <div className="courses-grid reveal">
         {courses.map((course, idx) => (
-          <div className="course-card" key={idx}>
+          <div className="course-card reveal" key={idx}>
             <span className="course-icon">{course.icon}</span>
             <h3 className="course-title">{course.title}</h3>
             <p className="course-desc">{course.description}</p>
