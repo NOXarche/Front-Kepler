@@ -5,6 +5,7 @@ body {
   overflow-x: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
 /* --- Animated Tech Background --- */
 .tech-bg {
   position: fixed;
@@ -28,12 +29,14 @@ body {
   0%   { transform: translateY(0) scale(1) rotate(0deg);}
   100% { transform: translateY(-50px) scale(1.11) rotate(8deg);}
 }
+
 /* -- Generic containers and layout -- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
 }
+
 /* NAVBAR/HERO/GEOMETRIC */
 .navbar {
   position: fixed;
@@ -56,6 +59,7 @@ body {
   background: linear-gradient(45deg, #00ffff33, #8a2be244); color: #fff; border: 2px solid #00ffff44;
 }
 .btn-nav:hover { background: linear-gradient(45deg, #00ffff, #8a2be2); color: #0a0e27; box-shadow: 0 0 20px #8a2be2cc; }
+
 /* HERO */
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
 .hero-content { text-align: center; z-index: 2; position: relative; margin-top: 7vh;}
@@ -75,6 +79,7 @@ body {
 .cta-button:hover { transform: scale(1.05) translateY(-4px); box-shadow: 0 4px 40px #00ffff66; }
 .button-glow { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent); animation: shine-button 2s infinite;}
 @keyframes shine-button { 0% {transform: translateX(-100%) rotate(30deg);} 100% {transform: translateX(100%) rotate(30deg);} }
+
 /* Geometric pattern */
 .geometric-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 .floating-element { position: absolute; width: 90px; height: 90px; border-radius: 18px; background:rgba(0,255,255,0.09); border:2px solid #00ffff; animation: float 7s ease-in-out infinite; }
@@ -82,12 +87,14 @@ body {
 .floating-2 { top: 55%; right: 18%; animation-delay: 2s; background: rgba(138,43,226,0.11); border-color: #8a2be2;}
 .floating-3 { bottom: 18%; left: 22%; animation-delay: 4s; background: rgba(255,0,255,0.09); border-color: #ff00ff;}
 @keyframes float { 0%,100%{ transform: translateY(0) rotate(0deg);}50%{transform: translateY(-36px) rotate(180deg);} }
+
 /* Sections - Titles */
 .section-title {
   text-align: center; font-size: 2.8rem; font-weight: 700; margin-bottom: 2rem;
   background: linear-gradient(45deg, #00ffff, #8a2be2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 @media (max-width:600px){ .section-title{font-size:1.4rem;} }
+
 /* Features, Cards, Grids */
 .features, .popular-courses, .why-kepler, .learning-path, .pricing {padding: 4rem 0;}
 .features-grid, .whykepler-grid, .courses-grid, .pricing-grid { display: grid; gap: 1.7rem; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
@@ -100,13 +107,16 @@ body {
 }
 .card-glow { pointer-events: none; position: absolute; z-index: 0; top: -60%; left: -60%; width: 220%; height: 220%; background: radial-gradient(circle, #00ffff33 0%, #ff00ff18 40%, transparent 95%); opacity: 0; transition: opacity 0.4s;}
 .feature-card:hover .card-glow, .course-card:hover .card-glow, .whykepler-card:hover .card-glow, .pricing-card:hover .card-glow { opacity: 1;}
+
 /* --- Features, Courses, Pricing, etc  --- */
 .feature-icon, .course-icon, .whykepler-icon, .learning-step-icon { font-size:2.1rem; margin-bottom:1.1rem; display:block;}
 .feature-title, .course-title, .whykepler-title, .learning-step-title {font-weight:600; margin-bottom:0.6rem;}
+
 /* Courses (Popular) */
 .enroll-btn {font-size:1rem; font-weight:600; background:linear-gradient(90deg,#00ffff 35%,#8a2be2 110%); color:#0a0e27; border-radius:20px; padding:0.8rem 1.8rem; border:none; transition:transform 0.19s,box-shadow 0.17s;}
 .enroll-btn:hover{background:linear-gradient(90deg,#8a2be2 25%,#00ffff 95%); color:#fff; transform: scale(1.07);}
 .courses-grid{margin-top:2rem;}
+
 /* Learning Path */
 .learning-path-steps {display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2rem; margin-top: 2rem;}
 .learning-step {min-width: 180px; max-width: 220px;}
@@ -115,9 +125,11 @@ body {
 .learning-step-desc {color:#ccc;}
 .learning-path-arrow {font-size:2.2rem; color:#8a2be2; font-weight:bold; margin-left:10px; display:inline-block;}
 @media(max-width:900px){ .learning-path-steps {flex-direction: column;align-items: center;} .learning-step{min-width:200px;} .learning-path-arrow{position:static;margin:0.7rem 0;} }
+
 /* Why Kepler */
 .whykepler-title {color:#8a2be2;}
 .whykepler-desc {color:#fff;margin-top:0.7rem;}
+
 /* Pricing */
 .pricing-grid {max-width:1000px;margin:2.5rem auto 0 auto;}
 .pricing-card {padding:2.5rem 1.5rem;}
@@ -126,6 +138,10 @@ body {
 .pricing-tier {font-size: 1.4rem; color: #00ffff;}
 .pricing-price {font-size:2.2rem;font-weight:700;background:linear-gradient(45deg,#fff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .pricing-button { margin-top: 1rem;}
+.pricing-features { list-style: none; margin-bottom: 2rem; }
+.pricing-features li { padding: 0.5rem 0; color: rgba(255,255,255,0.9); }
+.pricing-features li::before { content: "✓"; color: #00ffff; font-weight: bold; margin-right: 0.5rem; }
+
 /* Responsive buttons (all) */
 .btn-nav, .enroll-btn, .pricing-button, .cta-button {
   font-size: 1.1rem;
@@ -134,6 +150,7 @@ body {
 @media (max-width: 600px){
   .btn-nav, .enroll-btn, .pricing-button, .cta-button {font-size: .95rem; padding: 0.7rem 1rem;}
 }
+
 /* Footer */
 .footer { border-top: 1px solid #222d40; background: rgba(10, 14, 39, 0.84); width:100%; color:#eee;margin-top:6rem;padding:2.5rem 0 1rem 0;font-size:1rem; box-shadow: 0 0 18px 3px #00112238;}
 .footer-flex{display:flex;flex-wrap:wrap;gap:3rem;justify-content:space-between;min-height:110px;}
@@ -143,6 +160,7 @@ body {
 .social-icon{display:inline-block;width:34px;height:34px;margin-right:0.5rem;border-radius:8px;background:linear-gradient(145deg,#00ffff33,#8a2be244);color:#0a0e27;font-size:1.18rem;font-weight:bold;text-align:center;line-height:34px;text-decoration:none;box-shadow:0 2px 12px #00ffff20;transition:all 0.22s;}
 .social-icon:hover{background:linear-gradient(145deg,#8a2be2bb,#00ffffbb);color:#fff;}
 .footer-bottom { text-align:center;color: #bbb;margin-top:2rem;font-size:0.95rem;}
+
 /* Responsive */
 @media(max-width:768px){
   .container{padding:0 1rem;}
